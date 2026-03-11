@@ -24,17 +24,54 @@ In timing diagram Q0 is changing as soon as the negative edge of clock pulse is 
 
 **Procedure**
 
-/* write all the steps invloved */
+Create a new project in Quartus and write the Verilog code for the counter, then save the file.
+
+Compile the design using Start Compilation to check for errors.
+
+Create a simulation waveform file: File → New → University Program VWF and add signals (clk, rstn, q[3..0]).
+
+Set input waveforms: use Overwrite Clock for clk and set rstn = 0 initially, then 1 after some time.
+
+Run simulation (Simulation → Run Functional Simulation) and observe the counter output q[3..0] counting sequentially.
 
 **PROGRAM**
 
-/* Program for 4 Bit Ripple Counter and verify its truth table in quartus using Verilog programming.
+ Program for 4 Bit Ripple Counter and verify its truth table in quartus using Verilog programming.
+````
+Developed by:MUTHUAKASH M
+RegisterNumber:212225230194
 
- Developed by: RegisterNumber:
-*/
+module ripple(clk,rstn,q);
+input clk,rstn;
+output reg [3:0] q;
+
+always @(posedge clk or negedge rstn)
+if(!rstn) q[0]<=0; else q[0]<=~q[0];
+
+always @(posedge q[0] or negedge rstn)
+if(!rstn) q[1]<=0; else q[1]<=~q[1];
+
+always @(posedge q[1] or negedge rstn)
+if(!rstn) q[2]<=0; else q[2]<=~q[2];
+
+always @(posedge q[2] or negedge rstn)
+if(!rstn) q[3]<=0; else q[3]<=~q[3];
+
+endmodule
+
+````
 
 **RTL LOGIC FOR 4 Bit Ripple Counter**
 
+<img width="1341" height="559" alt="image" src="https://github.com/user-attachments/assets/9134251f-95df-4fca-be41-7cb1487be6e6" />
+
+
+
 **TIMING DIGRAMS FOR 4 Bit Ripple Counter**
 
+<img width="1919" height="685" alt="image" src="https://github.com/user-attachments/assets/521450db-1da1-4d99-a63e-4d4856600311" />
+
+
 **RESULTS**
+
+Thus the 4 Bit Ripple Counter has been implemented using Verilog successfully and validated their functionality using their truth table.
