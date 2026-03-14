@@ -38,8 +38,8 @@ Run simulation (Simulation → Run Functional Simulation) and observe the counte
 
  Program for 4 Bit Ripple Counter and verify its truth table in quartus using Verilog programming.
 ````
-Developed by:MUTHUAKASH M
-RegisterNumber:212225230194
+Developed by:Harshini J
+RegisterNumber:212225040120
 
 module ripple(clk,rstn,q);
 input clk,rstn;
